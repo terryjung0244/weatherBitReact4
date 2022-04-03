@@ -9,8 +9,8 @@ const WeatherBit = () => {
 
   const dispatch = useDispatch()
 
-  const onClickCityName = () => {
-    dispatch(weatherReducerWeatherApiCallAction())
+  const onClickCity = (city) => {
+    dispatch(weatherReducerWeatherApiCallAction(city))
   }
 
   return (
@@ -18,7 +18,7 @@ const WeatherBit = () => {
       <div>
         {cityList.map((city, index) => {
           return (
-            <div key={city.cityName} onClick={onClickCityName}>
+            <div key={city.cityName} onClick={()=> onClickCity(city)}>
               {city.cityName}
             </div>
           )
