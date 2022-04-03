@@ -10,8 +10,8 @@ export const cityList = [
     country: 'US'
   },
   {
-    cityName: 'Ansan',
-    province: 'Kyung-gi-do',
-    country: 'KOR'
+    cityName: 'Orlando',
+    province: 'Florida',
+    country: 'US'
   }
 ]
