@@ -1,5 +1,7 @@
 import { takeLatest, put, select, take } from "redux-saga/effects";
 import { WEATHER_ACTION_CONST } from "../../../services/const/actionConst";
+import { getWeatherApi } from "../../../services/api";
+import { weatherReducerWeatherApiCallActionSuccess, weatherReducerWeatherApiCallActionFailure} from "./weatherBitAction";
 
 const {
   WEATHER_API_CALL_ACTION,
@@ -18,10 +20,23 @@ const addDelay = () => {
 //GET
 
 function* getApiResult (action) {
+  yield addDelay();
   try {
+    let apiResult = yield getWeatherApi(action.payload);
+    
+    let organizedData = {
+      cityName: apiResult.data[0].city_name,
+      cityTemp: apiResult.data[0].temp,
+      cityWeather: {
+        icon: apiResult.data[0].weather.icon,
+        desc: apiResult.data[0].weather.description
+      }
+    }
+    
+    yield put(weatherReducerWeatherApiCallActionSuccess(organizedData))
 
   } catch (err) {
-    return err
+    yield put(weatherReducerWeatherApiCallActionFailure(err))
   }
 }
 

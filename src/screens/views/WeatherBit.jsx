@@ -2,6 +2,7 @@ import React from 'react';
 import { cityList } from '../../cityList';
 import { useSelector, useDispatch } from 'react-redux';
 import { weatherReducerWeatherApiCallAction } from '../reducers/weatherBit/weatherBitAction';
+import LoadingComponent from './reusable/LoadingComponent';
 
 const WeatherBit = () => {
 
@@ -25,6 +26,17 @@ const WeatherBit = () => {
             </div>
           )
         })}
+      </div>
+      <div>
+        
+      </div>
+      <div>
+        {(weatherReducerConnector.weatherBitApiResult.processing === true)
+        ?
+          <LoadingComponent/>
+        :
+          null
+        }
       </div>
       
     </div>
