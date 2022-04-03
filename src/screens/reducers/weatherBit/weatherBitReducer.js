@@ -24,10 +24,10 @@ export default function weatherBitReducer(state = initState, action) {
         draft.weatherBitApiResult = {...draft.weatherBitApiResult, processing: true, processed: false, message: 'Api Call', result: null}
         break;
       case WEATHER_API_CALL_ACTION_SUCCESS:
-        console.log("success")
+        draft.weatherBitApiResult = {...draft.weatherBitApiResult, processing: false, processed: true, message: 'Successed Api Call', result: null}
         break;
       case WEATHER_API_CALL_ACTION_FAILURE:
-        console.log('failure')
+        draft.weatherBitApiResult = {...draft.weatherBitApiResult, processing: false, processed: false, message: 'Unsuccessed Api Call', result: null}
         break;
       default:
       return state;

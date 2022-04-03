@@ -18,7 +18,11 @@ const addDelay = () => {
 //GET
 
 function* getApiResult (action) {
-  console.log("123")
+  try {
+
+  } catch (err) {
+    return err
+  }
 }
 
 export function* weatherBitSagaWatcher() {
