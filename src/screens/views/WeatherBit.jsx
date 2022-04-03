@@ -13,7 +13,7 @@ const WeatherBit = () => {
     dispatch(weatherReducerWeatherApiCallAction(city))
   }
 
-  console.log(weatherReducerConnector.weatherBitApiResult)
+  console.log(weatherReducerConnector.weatherBitApiResult.processing)
 
   return (
     <div>
