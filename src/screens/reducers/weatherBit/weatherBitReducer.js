@@ -21,7 +21,7 @@ export default function weatherBitReducer(state = initState, action) {
   return produce(state, draft => {
     switch (action.type) {
       case WEATHER_API_CALL_ACTION:
-        console.log(action.payload)
+        draft.weatherBitApiResult = {...draft.weatherBitApiResult, processing: true, processed: false, message: 'Api Call', result: null}
         break;
       case WEATHER_API_CALL_ACTION_SUCCESS:
         console.log("success")
