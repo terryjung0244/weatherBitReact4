@@ -15,6 +15,7 @@ const WeatherBit = () => {
   }
 
   console.log(weatherReducerConnector.weatherBitApiResult.processing)
+  console.log(weatherReducerConnector.weatherBitApiResult.result)
 
   return (
     <div>
@@ -28,7 +29,23 @@ const WeatherBit = () => {
         })}
       </div>
       <div>
-        
+      {(weatherReducerConnector.weatherBitApiResult.result !== null)
+        ?
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <div style={{ fontWeight: 'bold', marginTop: '30px'}}>
+              {weatherReducerConnector.weatherBitApiResult.result.cityName}
+            </div>
+            <div>
+              Temp: {weatherReducerConnector.weatherBitApiResult.result.cityTemp}
+            </div>
+            <div>
+              Desc: {weatherReducerConnector.weatherBitApiResult.result.cityWeather.desc}
+            </div>
+            <img style={{width: '100px'}} src={`https://www.weatherbit.io/static/img/icons/${weatherReducerConnector.weatherBitApiResult.result.cityWeather.icon}.png`} alt="weather icon" />
+          </div>
+        :
+          null
+        }
       </div>
       <div>
         {(weatherReducerConnector.weatherBitApiResult.processing === true)

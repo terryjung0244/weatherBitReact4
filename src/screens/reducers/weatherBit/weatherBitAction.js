@@ -12,14 +12,14 @@ export const weatherReducerWeatherApiCallAction = (city) => {
   }
 }
 
-export const weatherReducerWeatherApiCallActionSuccess = () => {
+export const weatherReducerWeatherApiCallActionSuccess = (SuccessData) => {
   return {
-    type: WEATHER_API_CALL_ACTION_SUCCESS, payload: ''
+    type: WEATHER_API_CALL_ACTION_SUCCESS, payload: SuccessData
   }
 }
 
-export const weatherReducerWeatherApiCallActionFailure = () => {
+export const weatherReducerWeatherApiCallActionFailure = (FailureData) => {
   return {
-    type: WEATHER_API_CALL_ACTION_FAILURE, payload: ''
+    type: WEATHER_API_CALL_ACTION_FAILURE, payload: FailureData
   }
 }

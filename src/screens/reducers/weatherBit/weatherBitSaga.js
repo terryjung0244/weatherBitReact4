@@ -23,7 +23,6 @@ function* getApiResult (action) {
   yield addDelay();
   try {
     let apiResult = yield getWeatherApi(action.payload);
-    
     let organizedData = {
       cityName: apiResult.data[0].city_name,
       cityTemp: apiResult.data[0].temp,
@@ -32,10 +31,11 @@ function* getApiResult (action) {
         desc: apiResult.data[0].weather.description
       }
     }
-    
+    console.log(organizedData)
     yield put(weatherReducerWeatherApiCallActionSuccess(organizedData))
 
   } catch (err) {
+    console.log(err)
     yield put(weatherReducerWeatherApiCallActionFailure(err))
   }
 }
